@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsBombers
 {
-
     public partial class FormBomberos : Form
     {
-        private Flybomber bomb;
+        private ITransport airplane;
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -21,26 +21,28 @@ namespace WindowsFormsBombers
         {
             InitializeComponent();
         }
+
         /// <summary>
-        /// Метод отрисовки бомбардировщика
+        /// Метод отрисовки самолета
         /// </summary>
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxBombers.Width, pictureBoxBombers.Height);
             Graphics gr = Graphics.FromImage(bmp);
-           bomb.DrawBomber(gr);
+            airplane.DrawBomber(gr);
             pictureBoxBombers.Image = bmp;
         }
+
         /// <summary>
         /// Обработка нажатия кнопки "Создать"
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>    
+        /// <param name="e"></param> 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            bomb = new Flybomber(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.DimGray, Color.RosyBrown, true);
-            bomb.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBombers.Width, pictureBoxBombers.Height);
+            airplane = new Airplane (rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            airplane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBombers.Width, pictureBoxBombers.Height);
             Draw();
         }
         /// <summary>
@@ -55,18 +57,30 @@ namespace WindowsFormsBombers
             switch (name)
             {
                 case "buttonUp":
-                    bomb.MoveTransport(Direction.Up);
+                    airplane.MoveTransport(Direction.Up);
                     break;
                 case "buttonDown":
-                    bomb.MoveTransport(Direction.Down);
+                    airplane.MoveTransport(Direction.Down);
                     break;
                 case "buttonLeft":
-                    bomb.MoveTransport(Direction.Left);
+                    airplane.MoveTransport(Direction.Left);
                     break;
                 case "buttonRight":
-                    bomb.MoveTransport(Direction.Right);
+                    airplane.MoveTransport(Direction.Right);
                     break;
             }
+            Draw();
+        }
+        /// <summary>
+        /// Обработка нажатия кнопки "Создать бомбардировщик"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonCreateBomber_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            airplane = new Flybomber(rnd.Next(100, 250), rnd.Next(1500, 2500), Color.Blue, Color.IndianRed, true);
+            airplane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBombers.Width, pictureBoxBombers.Height);
             Draw();
         }
     }

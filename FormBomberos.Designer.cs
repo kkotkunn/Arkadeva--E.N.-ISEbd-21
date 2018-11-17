@@ -34,6 +34,7 @@
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
+            this.buttonCreateBomber = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBombers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,11 +105,22 @@
             this.buttonLeft.UseVisualStyleBackColor = true;
             this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // buttonCreateBomber
+            // 
+            this.buttonCreateBomber.Location = new System.Drawing.Point(156, 12);
+            this.buttonCreateBomber.Name = "buttonCreateBomber";
+            this.buttonCreateBomber.Size = new System.Drawing.Size(212, 23);
+            this.buttonCreateBomber.TabIndex = 6;
+            this.buttonCreateBomber.Text = "Создать бомбардировщик";
+            this.buttonCreateBomber.UseVisualStyleBackColor = true;
+            this.buttonCreateBomber.Click += new System.EventHandler(this.buttonCreateBomber_Click);
+            // 
             // FormBomberos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 462);
+            this.Controls.Add(this.buttonCreateBomber);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
@@ -117,7 +129,7 @@
             this.Controls.Add(this.pictureBoxBombers);
             this.Name = "FormBomberos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Бомбардировщик";
+            this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBombers)).EndInit();
             this.ResumeLayout(false);
 
@@ -131,6 +143,7 @@
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
+        private System.Windows.Forms.Button buttonCreateBomber;
     }
 }
 
