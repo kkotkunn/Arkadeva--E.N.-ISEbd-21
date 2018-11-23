@@ -71,7 +71,7 @@ namespace WindowsFormsBombers
             g.DrawEllipse(pen, _startPosX, _startPosY + 3, 70, 13);
             g.DrawEllipse(pen, _startPosX + 35, _startPosY - 15, 12, 50);
             g.DrawEllipse(pen, _startPosX + 10, _startPosY - 6, 8, 30);
-            Brush brRed = new SolidBrush(Color.DimGray);
+            Brush brRed = new SolidBrush(MainColor);
             //фюзеляж самолета
             g.FillEllipse(brRed, _startPosX, _startPosY + 3, 70, 13);
             g.FillEllipse(brRed, _startPosX + 35, _startPosY - 15, 12, 50);
