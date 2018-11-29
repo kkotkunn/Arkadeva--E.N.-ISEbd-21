@@ -55,6 +55,7 @@
             // 
             // buttonbomberpark
             // 
+
             this.buttonbomberpark.Location = new System.Drawing.Point(824, 195);
             this.buttonbomberpark.Name = "buttonbomberpark";
             this.buttonbomberpark.Size = new System.Drawing.Size(160, 57);
@@ -153,7 +154,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeFly)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

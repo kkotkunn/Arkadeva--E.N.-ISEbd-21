@@ -46,4 +46,3 @@ namespace WindowsFormsBombers
         public abstract void MoveTransport(Direction direction);
     }
 }
-
