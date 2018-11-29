@@ -14,7 +14,7 @@ namespace WindowsFormsBombers
         /// </summary>
         protected const int bomberWidth = 100;
         /// <summary>
-        /// Ширина отрисовки самолета
+        ///Высота отрисовки самолета
         /// </summary>
         protected const int bomberHeight = 60;
         /// <summary>
