@@ -27,5 +27,10 @@ namespace WindowsFormsBombers
         /// </summary>
         /// <param name="g"></param>
         void DrawBomber(Graphics g);
+        /// <summary>
+        /// Смена основного цвета самолета
+        /// </summary>
+        /// <param name="color"></param>
+        void SetMainColor(Color color);
     }
 }

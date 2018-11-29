@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 
 namespace WindowsFormsBombers
-{    
+{  
     /// <summary>
     /// Класс отрисовки бомбардировщика
     /// </summary>
@@ -26,13 +26,13 @@ namespace WindowsFormsBombers
         /// <param name="weight">Вес бомбардировщика</param>
         /// <param name="mainColor">Основной цвет фюзеляжа</param>
         /// <param name="dopColor">Дополнительный цвет</param>
-        /// <param name="bomb">Признак наличия бомб</param>     
+        /// <param name="bomb">Признак наличия бомб</param>
         public Flybomber(int maxSpeed, float weight, Color mainColor, Color dopColor, bool bomb) :
         base(maxSpeed, weight, mainColor)
         {
             DopColor = dopColor;
-            Bomb = bomb;          
-        }               
+            Bomb = bomb;         
+        }        
         /// <summary>
         /// Отрисовка самолета
         /// </summary>
@@ -50,7 +50,15 @@ namespace WindowsFormsBombers
                 g.FillEllipse(bomb, _startPosX + 30, _startPosY + 20, 24, 5);
 
             }
-            base.DrawBomber(g);         
+            base.DrawBomber(g);           
+        }
+
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
     }
 }

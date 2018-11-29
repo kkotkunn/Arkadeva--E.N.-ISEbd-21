@@ -66,7 +66,7 @@ namespace WindowsFormsBombers
         }
         public override void DrawBomber(Graphics g)
         {
-            Pen pen = new Pen(Color.Black);
+            Pen pen = new Pen(MainColor);
             //границы самолета
             g.DrawEllipse(pen, _startPosX, _startPosY + 3, 70, 13);
             g.DrawEllipse(pen, _startPosX + 35, _startPosY - 15, 12, 50);

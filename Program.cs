@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsBombers
 {
+    public delegate void bomberDelegate(ITransport bomber);
     static class Program
     {
         /// <summary>
@@ -20,4 +21,3 @@ namespace WindowsFormsBombers
         }
     }
 }
-

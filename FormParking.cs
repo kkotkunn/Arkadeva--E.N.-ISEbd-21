@@ -17,6 +17,10 @@ namespace WindowsFormsBombers
         /// </summary>
         MultiLevelParking parking;
         /// <summary>
+        /// Форма для добавления
+        /// </summary>
+        FormBomberConfig form;
+        /// <summary>
         /// Количество уровней-парковок
         /// </summary>
         private const int countLevel = 5;
@@ -43,56 +47,6 @@ namespace WindowsFormsBombers
                 Graphics gr = Graphics.FromImage(bmp);
                 parking[listBoxLevels.SelectedIndex].Draw(gr);
                 pictureBoxParking.Image = bmp;
-            }
-        }
-
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать бомбардировщик"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonbomberpark_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var airplane = new Flybomber(100, 1000, dialog.Color, dialogDop.Color, true);
-                        int place = parking[listBoxLevels.SelectedIndex] + airplane;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }
-               
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать самолет"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonAirPark_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var airplane = new Airplane(100, 1000, dialog.Color);
-                    int place = parking[listBoxLevels.SelectedIndex] + airplane;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
             }
         }
 
@@ -126,7 +80,7 @@ namespace WindowsFormsBombers
                 }
             }
         }
-        
+
         /// <summary>
         /// Метод обработки выбора элемента на listBoxLevels
         /// </summary>
@@ -136,6 +90,33 @@ namespace WindowsFormsBombers
         {
             Draw();
         }
+       
+        /// <summary>
+        /// Метод добавления самолета
+        /// </summary>
+        /// <param name="car"></param>
+        private void AddBomber(ITransport bomber)
+        {
+            if (bomber != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = parking[listBoxLevels.SelectedIndex] + bomber;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Самолет не удалось поставить");
+                }
+            }
+
+        }
+
+        private void buttonSetBomber_Click_1(object sender, EventArgs e)
+        {
+            form = new FormBomberConfig();
+            form.AddEvent(AddBomber);
+            form.Show();
+        }
     }
 }
-
