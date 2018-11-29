@@ -113,7 +113,6 @@ namespace WindowsFormsBombers
                 _places[keys[i]].DrawBomber(g);
             }
         }
-
         /// <summary>
         /// Метод отрисовки разметки парковочных мест
         /// </summary>
@@ -131,6 +130,30 @@ namespace WindowsFormsBombers
                     i * _placeSizeWidth + 110, j * _placeSizeHeight);
                 }
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
+            }
+        }
+        /// <summary>
+        /// Индексатор
+        /// </summary>
+        /// <param name="ind"></param>
+        /// <returns></returns>
+        public T this[int ind]
+        {
+            get
+            {
+                if (_places.ContainsKey(ind))
+                {
+                    return _places[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlace(ind))
+                {
+                    _places.Add(ind, value);
+                    _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5 * _placeSizeHeight + 30, PictureWidth, PictureHeight);
+                }
             }
         }
     }

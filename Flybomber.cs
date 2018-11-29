@@ -13,7 +13,7 @@ namespace WindowsFormsBombers
     public class Flybomber : Airplane
     {   /// <summary>
         /// Дополнительный цвет
-        /// </summary>
+        /// </summary>    
         public Color DopColor { private set; get; }
         /// <summary>
         /// Признак наличия бомб
@@ -31,8 +31,21 @@ namespace WindowsFormsBombers
         base(maxSpeed, weight, mainColor)
         {
             DopColor = dopColor;
-            Bomb = bomb;         
-        }        
+            Bomb = bomb;
+          
+        }
+        public Flybomber(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length ==5)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                Bomb = Convert.ToBoolean(strs[4]);              
+            }
+        }
         /// <summary>
         /// Отрисовка самолета
         /// </summary>
@@ -59,6 +72,10 @@ namespace WindowsFormsBombers
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + Bomb;
         }
     }
 }

@@ -191,7 +191,7 @@ namespace WindowsFormsBombers
         {
             eventAddBomber?.Invoke(bomber);
             Close();
-        }
+        }      
     }
 }
 

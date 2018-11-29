@@ -67,7 +67,7 @@ namespace WindowsFormsBombers
                         Bitmap bmp = new Bitmap(pictureBoxTakeFly.Width,
                         pictureBoxTakeFly.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        bbomber.SetPosition(5, 40, pictureBoxTakeFly.Width, pictureBoxTakeFly.Height);
+                        bbomber.SetPosition(5, 60, pictureBoxTakeFly.Width, pictureBoxTakeFly.Height);
                         bbomber.DrawBomber(gr);
                         pictureBoxTakeFly.Image = bmp;
                     }
@@ -90,7 +90,7 @@ namespace WindowsFormsBombers
         {
             Draw();
         }
-       
+
         /// <summary>
         /// Метод добавления самолета
         /// </summary>
@@ -117,6 +117,48 @@ namespace WindowsFormsBombers
             form = new FormBomberConfig();
             form.AddEvent(AddBomber);
             form.Show();
+        }
+
+        /// <summary>
+        /// Обработка нажатия пункта меню "Сохранить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (parking.SaveData(saveFileDialog.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Обработка нажатия пункта меню "Загрузить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (parking.LoadData(openFileDialog.FileName))
+                {
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                Draw();
+            }
         }
     }
 }

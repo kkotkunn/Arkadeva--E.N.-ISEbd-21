@@ -29,6 +29,20 @@ namespace WindowsFormsBombers
             Weight = weight;
             MainColor = mainColor;
         }
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="info">Информация по объекту</param>
+        public Airplane (string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -71,11 +85,15 @@ namespace WindowsFormsBombers
             g.DrawEllipse(pen, _startPosX, _startPosY + 3, 70, 13);
             g.DrawEllipse(pen, _startPosX + 35, _startPosY - 15, 12, 50);
             g.DrawEllipse(pen, _startPosX + 10, _startPosY - 6, 8, 30);
-            Brush brRed = new SolidBrush (MainColor);
             //фюзеляж самолета
+            Brush brRed = new SolidBrush (MainColor);
             g.FillEllipse(brRed, _startPosX, _startPosY + 3, 70, 13);
             g.FillEllipse(brRed, _startPosX + 35, _startPosY - 15, 12, 50);
             g.FillEllipse(brRed, _startPosX + 10, _startPosY - 6, 7, 30);
+        }
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }
