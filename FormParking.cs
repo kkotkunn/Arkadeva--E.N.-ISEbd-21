@@ -36,7 +36,6 @@ namespace WindowsFormsBombers
             InitializeComponent();
 
             logger = LogManager.GetCurrentClassLogger();
-
             parking = new MultiLevelParking(countLevel, pictureBoxParking.Width, pictureBoxParking.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
@@ -71,6 +70,7 @@ namespace WindowsFormsBombers
             {
                 if (maskedTextBox1.Text != "")
                 {
+
                     try
                     {
 
@@ -196,6 +196,7 @@ namespace WindowsFormsBombers
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
                 Draw();
             }
