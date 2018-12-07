@@ -61,6 +61,7 @@
             this.groupBox1.Size = new System.Drawing.Size(210, 198);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+           
             // 
             // label2
             // 
@@ -70,6 +71,7 @@
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Место";
+           
             // 
             // pictureBoxTakeFly
             // 
@@ -78,6 +80,7 @@
             this.pictureBoxTakeFly.Size = new System.Drawing.Size(195, 125);
             this.pictureBoxTakeFly.TabIndex = 3;
             this.pictureBoxTakeFly.TabStop = false;
+           
             // 
             // buttonTake
             // 
@@ -154,14 +157,14 @@
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
@@ -186,7 +189,7 @@
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FormParking";
-            this.Text = "Ангар";
+            this.Text = "Парковка";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeFly)).EndInit();

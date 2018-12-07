@@ -35,7 +35,7 @@ namespace WindowsFormsBombers
         /// <summary>
         /// Размер парковочного места (высота)
         /// </summary>
-        private int _placeSizeHeight = 80;       
+        private int _placeSizeHeight = 80;
         /// <summary>
         /// Конструктор
         /// </summary>

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace WindowsFormsBombers
 {
     /// <summary>
-    /// Класс-ошибка "Если в ангаре уже заняты все места"
+    /// Класс-ошибка "Если на парковке уже заняты все места"
     /// </summary>
     public class ParkingOverflowException : Exception
     {
-        public ParkingOverflowException() : base("В ангаре нет свободных мест")
+        public ParkingOverflowException() : base("На парковке нет свободных мест")
         { }
     }
 }

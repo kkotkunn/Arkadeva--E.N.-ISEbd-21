@@ -84,16 +84,13 @@ namespace WindowsFormsBombers
                         for (int i = 0; i < countPlaces; i++)
                         {
                             try
-                            { 
-                               var bomber = level[i];
-                             
-                               
-                                  
-                                  //Записываем тип самолета
-                                  if (bomber.GetType().Name == "Airplane")
-                                  {
-                                      WriteToFile(i + ":Airplane:", fs);
-                                  }
+                            {
+                                var bomber = level[i];
+                                //Записываем тип самолета
+                                if (bomber.GetType().Name == "Airplane")
+                                {
+                                    WriteToFile(i + ":Airplane:", fs);
+                                }
                                 if (bomber.GetType().Name == "Flybomber")
                                 {
                                     WriteToFile(i + ":Flybomber:", fs);
@@ -183,7 +180,7 @@ namespace WindowsFormsBombers
                     bomber = new Flybomber(strs[i].Split(':')[2]);
                 }
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = bomber;
-            }           
+            }
         }
     }
 }

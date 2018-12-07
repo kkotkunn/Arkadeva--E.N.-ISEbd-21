@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 
 namespace WindowsFormsBombers
-{  
+{
     /// <summary>
     /// Класс отрисовки бомбардировщика
     /// </summary>
@@ -32,18 +32,18 @@ namespace WindowsFormsBombers
         {
             DopColor = dopColor;
             Bomb = bomb;
-          
+
         }
         public Flybomber(string info) : base(info)
         {
             string[] strs = info.Split(';');
-            if (strs.Length ==5)
+            if (strs.Length == 5)
             {
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
                 MainColor = Color.FromName(strs[2]);
                 DopColor = Color.FromName(strs[3]);
-                Bomb = Convert.ToBoolean(strs[4]);              
+                Bomb = Convert.ToBoolean(strs[4]);
             }
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace WindowsFormsBombers
                 g.FillEllipse(bomb, _startPosX + 30, _startPosY + 20, 24, 5);
 
             }
-            base.DrawBomber(g);           
+            base.DrawBomber(g);
         }
 
         /// Смена дополнительного цвета

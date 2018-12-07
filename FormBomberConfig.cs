@@ -42,7 +42,7 @@ namespace WindowsFormsBombers
         /// </summary>
         private void DrawBomber()
         {
-            if ( bomber!= null)
+            if (bomber != null)
             {
                 Bitmap bmp = new Bitmap(pictureBoxBomber.Width, pictureBoxBomber.Height);
                 Graphics gr = Graphics.FromImage(bmp);
@@ -115,7 +115,7 @@ namespace WindowsFormsBombers
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
                 case "Самолет":
-                   bomber = new Airplane(100, 700, Color.Black);
+                    bomber = new Airplane(100, 700, Color.Black);
                     break;
                 case "Бомбардировщик":
                     bomber = new Flybomber(100, 700, Color.White, Color.Black, true);
@@ -191,7 +191,7 @@ namespace WindowsFormsBombers
         {
             eventAddBomber?.Invoke(bomber);
             Close();
-        }      
+        }
     }
 }
 

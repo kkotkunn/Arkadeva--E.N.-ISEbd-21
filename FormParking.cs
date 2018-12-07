@@ -30,11 +30,9 @@ namespace WindowsFormsBombers
         /// Логгер
         /// </summary>
         private Logger logger;
-
         public FormParking()
         {
             InitializeComponent();
-
             logger = LogManager.GetCurrentClassLogger();
             parking = new MultiLevelParking(countLevel, pictureBoxParking.Width, pictureBoxParking.Height);
             //заполнение listBox
@@ -70,19 +68,15 @@ namespace WindowsFormsBombers
             {
                 if (maskedTextBox1.Text != "")
                 {
-
                     try
                     {
-
                         var bbomber = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox1.Text);
-
                         Bitmap bmp = new Bitmap(pictureBoxTakeFly.Width,
                         pictureBoxTakeFly.Height);
                         Graphics gr = Graphics.FromImage(bmp);
                         bbomber.SetPosition(5, 60, pictureBoxTakeFly.Width, pictureBoxTakeFly.Height);
                         bbomber.DrawBomber(gr);
                         pictureBoxTakeFly.Image = bmp;
-
                         logger.Info("Изъят самолет " + bbomber.ToString() + " с места " + maskedTextBox1.Text);
                         Draw();
                     }
@@ -95,7 +89,6 @@ namespace WindowsFormsBombers
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                     }
                 }
             }
@@ -123,7 +116,6 @@ namespace WindowsFormsBombers
                 {
                     int place = parking[listBoxLevels.SelectedIndex] + bomber;
                     logger.Info("Добавлен самолет " + bomber.ToString() + " на место " + place);
-                    
                     Draw();
                 }
                 catch (ParkingOverflowException ex)
@@ -161,7 +153,6 @@ namespace WindowsFormsBombers
                 try
                 {
                     parking.SaveData(saveFileDialog.FileName);
-                
                     MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     logger.Info("Сохранено в файл " + saveFileDialog.FileName);
                 }
@@ -185,7 +176,6 @@ namespace WindowsFormsBombers
                 try
                 {
                     parking.LoadData(openFileDialog.FileName);
-                
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     logger.Info("Загружено из файла " + openFileDialog.FileName);
                 }
@@ -196,7 +186,6 @@ namespace WindowsFormsBombers
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
                 Draw();
             }

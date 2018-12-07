@@ -41,7 +41,7 @@ namespace WindowsFormsBombers
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            airplane = new Airplane (rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            airplane = new Airplane(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
             airplane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBombers.Width, pictureBoxBombers.Height);
             Draw();
         }
