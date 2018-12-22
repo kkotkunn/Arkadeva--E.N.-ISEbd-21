@@ -65,6 +65,7 @@ namespace WindowsFormsBombers
                 //вверх
                 case Direction.Up:
                     if (_startPosY - step > 10)
+
                     {
                         _startPosY -= step;
                     }

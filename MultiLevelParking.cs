@@ -81,7 +81,6 @@ namespace WindowsFormsBombers
                     {
                         //Начинаем уровень
                         WriteToFile("Level" + Environment.NewLine, fs);
-
                         foreach (ITransport bomber in level)
                         {
                             //Записываем тип мшаины
