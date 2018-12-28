@@ -62,6 +62,7 @@ namespace WindowsFormsBombers
         {
             _maxCount = sizes;
             _places = new Dictionary<int, T>();
+            _currentIndex = -1;
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
         }
@@ -143,9 +144,11 @@ namespace WindowsFormsBombers
             //границы праковки
             g.DrawRectangle(pen, 0, 0, (_maxCount / 5) * _placeSizeWidth, 480);
             for (int i = 0; i < _maxCount / 5; i++)
-            {//отрисовываем, по 5 мест на линии
+            {
+                //отрисовываем, по 5 мест на линии
                 for (int j = 0; j < 6; ++j)
-                {//линия рамзетки места
+                {
+                    //линия рамзетки места
                     g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight,
                     i * _placeSizeWidth + 110, j * _placeSizeHeight);
                 }

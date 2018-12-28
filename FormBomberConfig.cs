@@ -115,7 +115,7 @@ namespace WindowsFormsBombers
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
                 case "Самолет":
-                    bomber = new Airplane(100, 700, Color.Black);
+                    bomber = new Airplane(100, 700, Color.White);
                     break;
                 case "Бомбардировщик":
                     bomber = new Flybomber(100, 700, Color.White, Color.Black, true);

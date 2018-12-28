@@ -165,9 +165,7 @@ namespace WindowsFormsBombers
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
-
         /// <summary>
         /// Обработка нажатия пункта меню "Загрузить"
         /// </summary>

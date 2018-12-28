@@ -10,7 +10,7 @@ namespace WindowsFormsBombers
     /// <summary>
     /// Класс отрисовки бомбардировщика
     /// </summary>
-    public class Flybomber : Airplane, IComparable<Flybomber>, IEquatable<Flybomber>
+    public class Flybomber : Airplane , IComparable<Flybomber>, IEquatable<Flybomber>
     {   /// <summary>
         /// Дополнительный цвет
         /// </summary>    
@@ -32,6 +32,7 @@ namespace WindowsFormsBombers
         {
             DopColor = dopColor;
             Bomb = bomb;
+
         }
         public Flybomber(string info) : base(info)
         {
@@ -60,6 +61,7 @@ namespace WindowsFormsBombers
                 Brush bomb = new SolidBrush(DopColor);
                 g.FillEllipse(bomb, _startPosX + 30, _startPosY - 8, 24, 5);
                 g.FillEllipse(bomb, _startPosX + 30, _startPosY + 20, 24, 5);
+
             }
             base.DrawBomber(g);
         }
@@ -94,7 +96,7 @@ namespace WindowsFormsBombers
             if (Bomb != other.Bomb)
             {
                 return Bomb.CompareTo(other.Bomb);
-            }
+            }          
             return 0;
         }
         /// <summary>

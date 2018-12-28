@@ -73,33 +73,29 @@ namespace WindowsFormsBombers
             }
             using (FileStream fs = new FileStream(filename, FileMode.Create))
             {
-                using (BufferedStream bs = new BufferedStream(fs))
+                //Записываем количество уровней
+                WriteToFile("CountLeveles:" + parkingStages.Count + Environment.NewLine, fs);
+                foreach (var level in parkingStages)
                 {
-                    //Записываем количество уровней
-                    WriteToFile("CountLeveles:" + parkingStages.Count + Environment.NewLine, fs);
-                    foreach (var level in parkingStages)
+                    //Начинаем уровень
+                    WriteToFile("Level" + Environment.NewLine, fs);
+                    foreach (ITransport bomber in level)
                     {
-                        //Начинаем уровень
-                        WriteToFile("Level" + Environment.NewLine, fs);
-                        foreach (ITransport bomber in level)
+                        //Записываем тип мшаины
+                        if (bomber.GetType().Name == "Airplane")
                         {
-                            //Записываем тип мшаины
-                            if (bomber.GetType().Name == "Airplane")
-                            {
-                                WriteToFile(level.GetKey + ":Airplane:", fs);
-                            }
-                            if (bomber.GetType().Name == "Flybomber")
-                            {
-                                WriteToFile(level.GetKey + ":Flybomber:", fs);
-                            }
-                            //Записываемые параметры
-                            WriteToFile(bomber + Environment.NewLine, fs);
+                            WriteToFile(level.GetKey + ":Airplane:", fs);
                         }
+                        if (bomber.GetType().Name == "Flybomber")
+                        {
+                            WriteToFile(level.GetKey + ":Flybomber:", fs);
+                        }
+                        //Записываемые параметры
+                        WriteToFile(bomber + Environment.NewLine, fs);
                     }
                 }
             }
         }
-
         /// <summary>
         /// Метод записи информации в файл
         /// </summary>
@@ -152,8 +148,8 @@ namespace WindowsFormsBombers
                 throw new Exception("Неверный формат файла");
             }
             int counter = -1;
-            int counterBomber = 0;
-            ITransport bomber = null;
+            // int counterBomber = 0;
+            ITransport bbomber = null;
             for (int i = 1; i < strs.Length; ++i)
             {
                 //идем по считанным записям
@@ -161,7 +157,7 @@ namespace WindowsFormsBombers
                 {
                     //начинаем новый уровень
                     counter++;
-                    counterBomber = 0;
+                    //    counterBomber = 0;
                     parkingStages.Add(new Parking<ITransport>(countPlaces, pictureWidth, pictureHeight));
                     continue;
                 }
@@ -171,15 +167,16 @@ namespace WindowsFormsBombers
                 }
                 if (strs[i].Split(':')[1] == "Airplane")
                 {
-                    bomber = new Airplane(strs[i].Split(':')[2]);
+                    bbomber = new Airplane(strs[i].Split(':')[2]);
                 }
                 else if (strs[i].Split(':')[1] == "Flybomber")
                 {
-                    bomber = new Flybomber(strs[i].Split(':')[2]);
+                    bbomber = new Flybomber(strs[i].Split(':')[2]);
                 }
-                parkingStages[counter][counterBomber++] = bomber;
+                parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = bbomber;
             }
         }
+
         /// <summary>
         /// Сортировка уровней
         /// </summary>

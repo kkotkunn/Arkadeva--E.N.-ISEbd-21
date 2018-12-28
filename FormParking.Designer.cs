@@ -198,7 +198,7 @@
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FormParking";
-            this.Text = "Парковка";
+            this.Text = "Ангар";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeFly)).EndInit();

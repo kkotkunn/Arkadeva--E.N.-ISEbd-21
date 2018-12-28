@@ -33,7 +33,7 @@ namespace WindowsFormsBombers
         /// Конструктор
         /// </summary>
         /// <param name="info">Информация по объекту</param>
-        public Airplane(string info)
+        public Airplane (string info)
         {
             string[] strs = info.Split(';');
             if (strs.Length == 3)
@@ -64,8 +64,7 @@ namespace WindowsFormsBombers
                     break;
                 //вверх
                 case Direction.Up:
-                    if (_startPosY - step > 10)
-
+                    if (_startPosY - step >10)
                     {
                         _startPosY -= step;
                     }
@@ -87,7 +86,7 @@ namespace WindowsFormsBombers
             g.DrawEllipse(pen, _startPosX + 35, _startPosY - 15, 12, 50);
             g.DrawEllipse(pen, _startPosX + 10, _startPosY - 6, 8, 30);
             //фюзеляж самолета
-            Brush brRed = new SolidBrush(MainColor);
+            Brush brRed = new SolidBrush (MainColor);
             g.FillEllipse(brRed, _startPosX, _startPosY + 3, 70, 13);
             g.FillEllipse(brRed, _startPosX + 35, _startPosY - 15, 12, 50);
             g.FillEllipse(brRed, _startPosX + 10, _startPosY - 6, 7, 30);
